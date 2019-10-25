@@ -14,5 +14,6 @@ path = "src/lib.rs"
 crate-type = ["rlib"]
 
 [dependencies]
+cocoa = "0.19.1"
 log = "0.3"
 objc = "0.2"

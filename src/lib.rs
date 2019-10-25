@@ -5,6 +5,7 @@
 // This file may not be copied, modified, or distributed except
 // according to those terms.
 
+extern crate cocoa;
 #[macro_use]
 extern crate log;
 #[macro_use]
