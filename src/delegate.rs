@@ -246,7 +246,7 @@ pub mod bm {
 pub mod bmx {
     use super::*;
 
-    pub fn peripheraldata(delegate: *mut Object, peripheral: *mut Object) -> Result<*mut Object, Box<Error>> {
+    pub fn peripheraldata(delegate: *mut Object, peripheral: *mut Object) -> Result<*mut Object, Box<dyn Error>> {
         let peripherals = bm::delegate_peripherals(delegate);
         let data = ns::dictionary_objectforkey(peripherals, ns::uuid_uuidstring(cb::peer_identifier(peripheral)));
         if data == nil {
@@ -256,7 +256,7 @@ pub mod bmx {
         Ok(data)
     }
 
-    pub fn peripheralevents(delegate: *mut Object, peripheral: *mut Object) -> Result<*mut Object, Box<Error>> {
+    pub fn peripheralevents(delegate: *mut Object, peripheral: *mut Object) -> Result<*mut Object, Box<dyn Error>> {
         let data = peripheraldata(delegate, peripheral)?;
         Ok(ns::dictionary_objectforkey(data, nsx::string_from_str(bm::PERIPHERALDATA_EVENTSKEY)))
     }
